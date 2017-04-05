@@ -9,7 +9,7 @@ const deletions = {
  
   from: [
     //first get rid of the time which will be in the format [00:00]
-    /[[0-9]*:[0-9]*.*]/g, 
+    /\[[0-9]*:[0-9]*.*\]/g, 
     //then get rid of any instance of the word '(edited)'
     /\(edited\)/g,
   
