@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "unslack": "./replaceSlackText.js"
+    "unslack": "./replaceSlackText.js",
+    "unrocket": "./replaceRocketChatText.js"
   },
   "author": "TonyWoode",
   "license": "ISC"
