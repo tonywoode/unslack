@@ -31,7 +31,7 @@ const deletions = {
 const names = {
 
   //close up peoples names where there's spaces and then a newline in between the name and what they say
-  from:  [ /^keith.alexander.*\n/gm, /^tony.woode.*\n/gm, /^ari.*\n/gm, /^steve.faulmann.*\n/gm, /^sfaulmann.*\n/gm, /^konte\.yiannis.*\n/gm], 
+  from:  [ /^keith.alexander.*\n/gm, /^tony.woode.*\n/gm, /^ari.*\n/gm, /^steve.faulmann.*\n/gm, /^sfaulmann.*\n/gm, /^yannis.kontekakis.*\n/gm], 
   to: [`keith: `, `tony: `, `ari: `, `steve: `, `yannis: `]
   //will match kwijibo (newline)I said some stuff and replace it with kwijibo: I said some stuff
 }
