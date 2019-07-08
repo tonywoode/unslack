@@ -20,14 +20,6 @@ const myName = {
   //will match kwijibo (newline)I said some stuff and replace it with kwijibo: I said some stuff
 }
    
-const blanklines = {
-
-  //tiddly needs blank lines for code quotes, but we don't have many of those in skype
-  //see the other scripts if you need >1 blank line instead, here let's just close up all blank lines
-  from: /^\s*[\r\n]/gm,
-  to: ``
-}
-
 const transform = (options) => {
   //we're going to merge this files property into the options object to DRY it
   const file = { files: filenamePassed }
@@ -44,4 +36,3 @@ const transform = (options) => {
 
 transform(names)
 transform(myName)
-transform(blanklines)
