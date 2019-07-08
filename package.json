@@ -1,7 +1,7 @@
 {
   "name": "replace-slack-text",
-  "version": "1.0.0",
-  "description": "apply regex to transform slack chat into wikitext format",
+  "version": "1.1.0",
+  "description": "apply regex to transform message app chat into wikitext format",
   "main": "replaceSlackText.js",
   "dependencies": {
     "replace-in-file": "^2.4.0"
