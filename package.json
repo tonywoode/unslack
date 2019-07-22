@@ -12,7 +12,8 @@
   },
   "bin": {
     "unslack": "./replaceSlackText.js",
-    "unrocket": "./replaceRocketChatText.js"
+    "unrocket": "./replaceRocketChatText.js",
+    "unskype": "./replaceSkypeText.js"
   },
   "author": "TonyWoode",
   "license": "ISC"
