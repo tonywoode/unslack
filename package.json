@@ -13,7 +13,9 @@
   "bin": {
     "unslack": "./replaceSlackText.js",
     "unrocket": "./replaceRocketChatText.js",
-    "unskype": "./replaceSkypeText.js"
+    "unskype": "./replaceSkypeText.js",
+    "mdToTiddly": "./mdToTiddly.js",
+    "tiddlyToMd": "./tiddlyToMd.js"
   },
   "author": "TonyWoode",
   "license": "ISC"
