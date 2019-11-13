@@ -9,7 +9,7 @@ const names = {
 
   //close up peoples names where there's spaces and then a newline in between the name and what they say
   from:  [ /^Keith.*\n/gm, /^Ari.*\n/gm, /^Steve.*\n/gm, /^Yannis.*\n/gm], 
-  to: [`keith: `, `tony: `, `ari: `, `steve: `, `yannis: `]
+  to: [`keith: `, `ari: `, `steve: `, `yannis: `]
 }
 
 const myName = {
