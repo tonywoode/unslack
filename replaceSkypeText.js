@@ -8,7 +8,7 @@ const inputFile = fs.readFileSync(filenamePassed, "utf8")
 const names = {
 
   //close up peoples names where there's spaces and then a newline in between the name and what they say
-  from:  [ /^Keith.*\n/gm, /^Ari.*\n/gm, /^Steve.*\n/gm, /^Yannis.*\n/gm], 
+  from:  [ /^Keith.*\n/gm, /^Ari.*\n/gm, /^Steve.*\n/gm, /^konte.*\n/gm], 
   to: [`keith: `, `ari: `, `steve: `, `yannis: `]
 }
 
