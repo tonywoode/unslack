@@ -12,6 +12,12 @@ const unescapedMarkup = {
   // another manual thing: boostnote for instance often is forgiving, tiddly not so, of closing marks
 }
 
+const overEscapedCodeBlockMarkers = {
+  // boostnote is forgiving of, and complicit in, doing `````` when you mean ```. tiddly is unforgiving
+  from: /``````/gm,
+  to: `\`\`\``
+}
+
 const whitespaceLines = {
   // markdown doesn't mind, but tiddly's parser can get very upset with these
   from: /^ *$/gm,
@@ -85,6 +91,7 @@ const transform = options => {
   }
 }
 
+transform(overEscapedCodeBlockMarkers)
 transform(taskLists)
 transform(whitespaceLines)
 transform(boldStars)
