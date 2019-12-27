@@ -18,6 +18,12 @@ const overEscapedCodeBlockMarkers = {
   to: `\`\`\``
 }
 
+const codeBlocksStartLate = {
+  // markdown doesn't care, tiddly needs code blocks to start at bol
+  from: /^ *```/gm,
+  to: `\`\`\``
+}
+
 const whitespaceLines = {
   // markdown doesn't mind, but tiddly's parser can get very upset with these
   from: /^ *$/gm,
@@ -30,16 +36,35 @@ const images = {
   to: `[img[$1|$2]]`
 }
 const urls = {
-  // url links are like [title](link) in markdown and [[title|link]] in tiddly
-  /* note the [^)] in the latter capturing group, this was .* but then the last matching ) was being
-   * non-greedy and including everything after a url in a line if that line had url then (some i
-   * comment in brackets) */
-  from: /[^!]\[(.*)\]\(([^)]*)\)/gm,
-  to: `[[$1|$2]]`
+  /* url links are like [title](link) in markdown and [[title|link]] in tiddly
+   *
+   * from: / \[(.*)\]\((.*)\)/gm,
+   * to: ` [[$1|$2]]`
+   * but change the latter capturing group to [^)], else the last matching ) is
+   * non-greedy and includes everything after a url in a line if that line had "url then (some
+   * comment in brackets)"
+   * from: / \[(.*)\]\(([^)]*)\)/gm,
+   * but if we don't look for 'not ]' inside the first capturing group, any lines with two links
+   * will be processed as one link
+   * from: / \[([^\]]*)\]\(([^)]*)\)/gm,
+   * then there's a problem with urls that have a | in them: | in the name section will corrupt
+   * wikitext links (coz there will be two |) without altering again they'll come out like this:
+   * source: [Node v12.12.0 (Current) \| Node.js](https://nodejs.org/en/blog/release/v12.12.0/)
+   * dest: [[Node v12.12.0 (Current) \| Node.js|https://nodejs.org/en/blog/release/v12.12.0/]]
+   * what we need to do is say that the website description might contain an optional |, and if
+   * its found, don't print it in the output. Firstly here's how it looks if we just lose anything
+   * including and past the first | in the name section (lets simplify things for a mo and pretend the
+   * text we lose can be anything and not 'not ]')
+   * from: / \[([^|\]]*)\|?.*\]\(([^)]*)\)/gm,
+   * but instead, keep anything after that first | (its like stripping out the first | - which this
+   * domain is somewhat bad at), sadly we DO need to search for 'not ]' again in the second capturing group,
+   * else we get out twolinks-as-one-link problem back */
+  from: / \[([^|\]]*)\|?([^\]]*)\]\(([^)]*)\)/gm,
+  to: ` [[$1$2|$3]]`
 }
 
 const backticks = {
-  // markdown if forgiving of backticks haveing leading/trainling whitespace, tiddly not so
+  // markdown if forgiving of backticks having leading/trainling whitespace, tiddly not so
   from: /^ *``` */gm,
   to: `\`\`\``
 }
@@ -92,6 +117,7 @@ const transform = options => {
 }
 
 transform(overEscapedCodeBlockMarkers)
+transform(codeBlocksStartLate)
 transform(taskLists)
 transform(whitespaceLines)
 transform(boldStars)
