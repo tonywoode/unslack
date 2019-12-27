@@ -58,9 +58,13 @@ const urls = {
    * from: / \[([^|\]]*)\|?.*\]\(([^)]*)\)/gm,
    * but instead, keep anything after that first | (its like stripping out the first | - which this
    * domain is somewhat bad at), sadly we DO need to search for 'not ]' again in the second capturing group,
-   * else we get out twolinks-as-one-link problem back */
-  from: / \[([^|\]]*)\|?([^\]]*)\]\(([^)]*)\)/gm,
-  to: ` [[$1$2|$3]]`
+   * else we get out twolinks-as-one-link problem back
+   * from: / \[([^|\]]*)\|?([^\]]*)\]\(([^)]*)\)/gm,
+   * to: ` [[$1$2|$3]]`
+   * then, that initial space might not always be true, the url might start the line, its
+   *  whitespace, and we need to capture and preserve it coz it might be various types of space */
+  from: /(\s+)\[([^|\]]*)\|?([^\]]*)\]\(([^)]*)\)/gm,
+  to: `$1[[$2$3|$4]]`
 }
 
 const backticks = {
