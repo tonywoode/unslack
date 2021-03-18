@@ -130,13 +130,12 @@ const doneTasks = {
  * [[5 Best Multi Monitor Software - Appuals.com|https://appuals.com/5-best-multi-monitor-software/]]
  * [[How do you manage switching quickly between 3 monitor gaming and normal use? : nvidia|https://www.reddit.com/r/nvidia/comments/7j29y2/how_do_you_manage_switching_quickly_between_3/]]
  *
- * * Similarly a numbered list might print on a single line if the line above it is populated, if the beginning of a list or a monospace block (and prob lots of other constructs) are detected, the line above it needs to be blank
+ * * Similarly a numbered list might print on a single line if the line above it is populated, if the beginning of a list or a monospace block (and prob lots of other constructs) are detected, the line above it needs to be blank. This of course requires proper parsing of the file so a differnt approach
  * e.g.:
  * this should be a blank line
  * 1) first item
  * 2) second item
  *
- * * markdown in boostnote is more forgiving of starting a strikethrough with ~~ and not closing it with another ~~, it will contitnue strikethrough till it finds a blank link, tiddlywiki will continue strikethrough till the end of the tiddler, not really sure what the rule would be here though - look for balanced ~~ in the rest of the doc if you find a single instance perhaps (it might be a multiline strikethrough)?
  */
 
 const transform = options => {
