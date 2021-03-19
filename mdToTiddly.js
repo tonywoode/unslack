@@ -75,6 +75,39 @@ const backticks = {
   to: `\`\`\``
 }
 
+const admonitionHintOpening = {
+  // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
+  from: /^!!! hint(.*)/gm,
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(218, 234, 231); border-left: .4rem solid rgb(79,146,134);">
+
+    <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">HINT: $1</div>
+`
+}
+
+const admonitionNoteOpening = {
+  // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
+  from: /^!!! note(.*)/gm,
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(215, 231, 245); border-left: .4rem solid rgb(56,136,203);">
+
+    <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">NOTE: $1</div>
+`
+}
+
+const admonitionCautionOpening = {
+  // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
+  from: /^!!! caution(.*)/gm,
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(253,238,218); border-left: .4rem solid rgb(243,170,71);">
+
+    <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">CAUTION: $1</div>
+`
+}
+
+const admonitionClosing = {
+  //also must be done before headings are transformed
+  from: /^!!!$/gm,
+  to: `</p>`
+}
+
 const headings = {
   // heading are # in md, ! in tiddly. annoyingly # is numbered list in tiddly!
   from: /(?<!\w)#/gm,
@@ -101,7 +134,7 @@ const boldUnderscores = {
 }
 
 const taskLists = {
-  // mardown has great checklists, tiddlies todos are horrific, the best we can do is pad md checklists
+  // mardown has great checklists, tiddlies todos are horrific, the best we can do is pad md checklists which will render them at least on separate lines (of course if they are already padded it will add spurious padding (considered the lesser evil))
   from: /^- \[(x| )\]/gm,
   to: `\n- [$1]`
 }
@@ -160,5 +193,9 @@ transform(boldUnderscores)
 transform(images)
 transform(urls)
 transform(backticks)
+transform(admonitionHintOpening)
+transform(admonitionNoteOpening)
+transform(admonitionCautionOpening)
+transform(admonitionClosing)
 transform(headings)
 transform(numLists)
