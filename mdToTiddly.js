@@ -78,7 +78,7 @@ const backticks = {
 const admonitionHintOpening = {
   // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
   from: /^!!! hint(.*)/gm,
-  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(218, 234, 231); border-left: .4rem solid rgb(79,146,134);">
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(218, 234, 231); border-left: .4rem solid rgb(79,146,134);color:black">
 
     <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">HINT: $1</div>
 `
@@ -87,7 +87,7 @@ const admonitionHintOpening = {
 const admonitionNoteOpening = {
   // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
   from: /^!!! note(.*)/gm,
-  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(215, 231, 245); border-left: .4rem solid rgb(56,136,203);">
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(215, 231, 245); border-left: .4rem solid rgb(56,136,203);color:black">
 
     <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">NOTE: $1</div>
 `
@@ -96,7 +96,7 @@ const admonitionNoteOpening = {
 const admonitionCautionOpening = {
   // markdown has beautiful admonitions, tiddly has squat....these work with !!! so must be transformed before headings. It was better to do this in html than in tiddly's @@ annotiations for a number of reasons
   from: /^!!! caution(.*)/gm,
-  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(253,238,218); border-left: .4rem solid rgb(243,170,71);">
+  to:`<p class="tc-tiddler-frame" style="width:90%;background-color:rgb(253,238,218); border-left: .4rem solid rgb(243,170,71);color:black">
 
     <div class="tc-titlebar" style="font-size:140%; color:black; font-weight:25; background-color:rgb(240,240,240);">CAUTION: $1</div>
 `
