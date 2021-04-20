@@ -12,6 +12,14 @@ const headings = {
   to: `#`  
 }
 
+const images = {
+  //$1 will be e.g.: width which either we throw away or we go to html - https://gist.github.com/uupaa/f77d2bcf4dc7a294d109
+  //$2 optional image name (don't tend to use in tiddly, do tend to in gfm
+  //$3 the image (remember in GFM we'll need to put our image in 'diagrams' folder in the wiki repo or similar
+  from: /^\[img(.*)\[(.*\|)?(.*)\]\]/gm,
+  to: `!\[$2\]\($3\)`
+}
+
 const transform = (options) => {
   //we're going to merge this files property into the options object to DRY it
   const file = { files: filenamePassed }
@@ -27,3 +35,4 @@ const transform = (options) => {
 }
 
 transform(headings)
+transform(images)
