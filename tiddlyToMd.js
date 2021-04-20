@@ -20,6 +20,13 @@ const images = {
   to: `!\[$2\]\($3\)`
 }
 
+const boldStars = {
+  // markdown is **this** or __this__, tiddly is ''this''
+  from: /''(.*)''/gm,
+  to: `**$1**`
+}
+
+
 const transform = (options) => {
   //we're going to merge this files property into the options object to DRY it
   const file = { files: filenamePassed }
@@ -36,3 +43,4 @@ const transform = (options) => {
 
 transform(headings)
 transform(images)
+transform(boldStars)
