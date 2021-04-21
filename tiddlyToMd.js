@@ -22,7 +22,8 @@ const images = {
 
 const boldStars = {
   // markdown is **this** or __this__, tiddly is ''this''
-  from: /''(.*)''/gm,
+  // ? enables >1 occurance of boldstars on the same line being treated as one - https://javascript.info/regexp-greedy-and-lazy
+  from: /''(.*?)''/gm,
   to: `**$1**`
 }
 
