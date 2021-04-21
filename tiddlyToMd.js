@@ -12,6 +12,13 @@ const headings = {
   to: `#`  
 }
 
+const subBulletPoints = {
+  //Tiddly uses **, md uses whitespace
+  //must come before 'boldstars'
+  from: /^\s*\*\*/gm,
+  to: `  *`  
+}
+
 const images = {
   //$1 will be e.g.: width which either we throw away or we go to html - https://gist.github.com/uupaa/f77d2bcf4dc7a294d109
   //$2 optional image name (don't tend to use in tiddly, do tend to in gfm
@@ -43,5 +50,6 @@ const transform = (options) => {
 }
 
 transform(headings)
+transform(subBulletPoints)
 transform(images)
 transform(boldStars)
