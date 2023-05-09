@@ -69,3 +69,5 @@ http://stackoverflow.com/a/12388814/3536094
 
 Now we have to pick out places where special characters like `<` have been put in unquoted. That's why your lines will look wrong....
 
+! Installing
+Remember I run this globally so `npm i -g` after modificiation and every reinstall
