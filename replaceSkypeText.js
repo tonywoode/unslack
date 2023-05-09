@@ -8,13 +8,12 @@ const inputFile = fs.readFileSync(filenamePassed, "utf8")
 const names = {
 
   //close up peoples names where there's spaces and then a newline in between the name and what they say
-  from:  [ /^Keith.*\n/gm, /^Ari.*\n/gm, /^Steve.*\n/gm, /^konte.*\n/gm], 
-  to: [`keith: `, `ari: `, `steve: `, `yannis: `]
+  from:  [ /^Tony.*\n/gm, /^Keith.*\n/gm, /^Ari.*\n/gm, /^Steve.*\n/gm, /^konte.*\n/gm], 
+  to: [`tony: `, `keith: `, `ari: `, `steve: `, `yannis: `]
 }
 
 const myName = {
-
-  //skype doesn't print your own name, instead if prints just the time
+  //skype desktop doesn't print your own name, instead if prints just the time, skype web prints name, hence replace my name above
   from:  [ /^[0-9][0-9]:[0-9][0-9]\n/gm], 
   to: [`tony: `]
   //will match kwijibo (newline)I said some stuff and replace it with kwijibo: I said some stuff
